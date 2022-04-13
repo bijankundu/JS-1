@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/screen1.css" />
-    <title>Screen 1</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <title>Home</title>
   </head>
   <body>
     <header>
-      <h1>Screen 1</h1>
+      <h1>Employees</h1>
       <div class="header--btns">
-        <button class="btn--download" onclick="triggerDownload()">Export data</button>
-        <button class="btn--add" onclick="handleShowModal()">Add new employee</button>
+        <button class="btn btn-secondary btn--download" onclick="triggerDownload()" title="Download employee data">
+          <i class="fa-solid fa-download fa-xl"></i>
+        </button>
+        <button class="btn btn-primary btn--add" onclick="handleShowModal()">
+          <i class="fa-solid fa-plus"></i>Add new employee
+        </button>
       </div>
     </header>
     <main id="container--screen1">
@@ -71,7 +76,7 @@
                   <select id="id-type">
                     <option value="Aadhar">Aadhar</option>
                     <option value="PAN">PAN</option>
-                    <option value="DL">PAN</option>
+                    <option value="DL">DL</option>
                   </select>
                   <input type="number" id="id-number" placeholder="id number" />
                 </div>

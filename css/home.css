@@ -5,6 +5,7 @@ header {
 
 header h1 {
   text-align: center;
+  color: var(--gray-900);
 }
 
 main {
@@ -16,25 +17,16 @@ main {
 
 .header--btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
-.header--btns .btn--add {
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: #28328c;
-}
-
-.header--btns .btn--add:hover {
-  cursor: pointer;
-  background-color: #3542b8;
-}
-
-.header--btns .btn--add:active {
-  cursor: pointer;
-  background-color: #1f2985;
+.btn--download {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
 }
 
 a {
@@ -50,18 +42,24 @@ a {
   flex-direction: column;
   color: black;
   cursor: pointer;
+  background-color: #fefefe;
+}
+
+.card:hover {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .card--title h3 {
   text-align: center;
   font-size: 1.2rem;
   margin-bottom: 16px;
+  color: var(--gray-900);
 }
 
 .card--body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   flex: 1;
 }
 
@@ -74,29 +72,22 @@ a {
 
 .card--body .user-details h5 {
   font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-800);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .card--body .user-details p {
   font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--gray-700);
 }
 
 .btn--delete {
-  background-color: red;
-  border: none;
-  color: white;
-  padding: 10px;
-  font-weight: 600;
-  border-radius: 10px;
   margin-top: auto;
-}
-
-.btn--delete:hover {
-  background-color: #c50000;
-  cursor: pointer;
-}
-
-.btn--delete:active {
-  background-color: #e40101;
 }
 
 /* Modal styles */

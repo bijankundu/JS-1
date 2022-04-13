@@ -1,10 +1,13 @@
-const generateCardDetailsElement = (key, value) => {
+const generateCardDetailsElement = (key, value, icon = []) => {
   const userDetailsContainer = document.createElement("div");
   userDetailsContainer.classList.add("user-details");
   const h5 = document.createElement("h5");
   const p = document.createElement("p");
+  const keyIcon = document.createElement("i");
+  keyIcon.classList.add(...icon);
   h5.innerText = key;
   p.innerText = value;
+  h5.prepend(keyIcon);
   userDetailsContainer.append(h5, p);
   return userDetailsContainer;
 };
@@ -21,17 +24,22 @@ const cardGenerator = (userDetails = {}) => {
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card--body");
-  const userGender = generateCardDetailsElement("Gender", userDetails.gender);
-  const userAge = generateCardDetailsElement("Age", userDetails.age);
-  const userTeam = generateCardDetailsElement("Team", userDetails.team);
-  const userManager = generateCardDetailsElement("Manager", userDetails.manager);
+  const userGender = generateCardDetailsElement("Gender", userDetails.gender, ["fa-solid", "fa-venus-mars"]);
+  const userAge = generateCardDetailsElement("Age", userDetails.age, ["fa-solid", "fa-cake-candles"]);
+  const userTeam = generateCardDetailsElement("Team", userDetails.team, ["fa-solid", "fa-people-group"]);
+  const userManager = generateCardDetailsElement("Manager", userDetails.manager, ["fa-solid", "fa-people-roof"]);
 
   cardBody.append(userGender, userAge, userTeam, userManager);
 
   const deleteButton = document.createElement("button");
-  deleteButton.classList.add("btn--delete");
+  deleteButton.classList.add("btn", "btn-danger", "btn--delete");
   deleteButton.dataset.user_id = userDetails.user_id;
-  deleteButton.innerText = "Delete";
+  deleteButton.innerText = "DELETE";
+
+  const buttonIcon = document.createElement("i");
+  buttonIcon.classList.add("fa-regular", "fa-trash-can");
+
+  deleteButton.prepend(buttonIcon);
 
   cardBody.append(deleteButton);
 
@@ -59,7 +67,7 @@ const deleteCard = (userId) => {
 
 const handleFormSubmit = (event) => {
   event.preventDefault();
-  console.log(`trigger`);
+  // console.log(`trigger`);
   const newEmployee = {};
   newEmployee["name"] = {
     first: document.getElementById("first").value,
