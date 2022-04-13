@@ -1,0 +1,127 @@
+[
+  {
+    "user_id": 0,
+    "name": {
+      "first": "Gisela",
+      "middle": "Albert",
+      "last": "Demitria"
+    },
+    "email_id": "gisela.demitria@gmail.com",
+    "phone_number": "9553465849",
+    "gender": "male",
+    "age": "40",
+    "team": "Platform",
+    "manager": "Emylee Lory",
+    "address": {
+      "line_1": "GPRb4_",
+      "line_2": "xfTSM3agZi",
+      "city": "Rochester",
+      "state": "Japan",
+      "pincode": "123123"
+    },
+    "id": {
+      "type": "Aadhar",
+      "number": "5822421448"
+    }
+  },
+  {
+    "user_id": 1,
+    "name": {
+      "first": "Phylis",
+      "middle": "Albert",
+      "last": "Isacco"
+    },
+    "email_id": "phylis.isacco@gmail.com",
+    "phone_number": "8307583132",
+    "gender": "female",
+    "age": "23",
+    "team": "Platform",
+    "manager": "Trudie Huggins",
+    "address": {
+      "line_1": "qt2R_7",
+      "line_2": "RiD4PohnOY",
+      "city": "Gibraltar",
+      "state": "Belize",
+      "pincode": "123123"
+    },
+    "id": {
+      "type": "Aadhar",
+      "number": "88482061105"
+    }
+  },
+  {
+    "user_id": 2,
+    "name": {
+      "first": "Cacilie",
+      "middle": "John",
+      "last": "Euridice"
+    },
+    "email_id": "cacilie.euridice@gmail.com",
+    "phone_number": "7086030467",
+    "gender": "female",
+    "age": "50",
+    "team": "Platform",
+    "manager": "Valli Buttaro",
+    "address": {
+      "line_1": "4BPdVF",
+      "line_2": "1UVUBz_6U0",
+      "city": "Thessaloniki",
+      "state": "Thailand",
+      "pincode": "456412"
+    },
+    "id": {
+      "type": "PAN",
+      "number": "97080881605665"
+    }
+  },
+  {
+    "user_id": 3,
+    "name": {
+      "first": "Marcy",
+      "middle": "Zachariah",
+      "last": "Hutchison"
+    },
+    "email_id": "marcy.hutchison@gmail.com",
+    "phone_number": "7311368792",
+    "gender": "female",
+    "age": "42",
+    "team": "Backend",
+    "manager": "Melodie Vins",
+    "address": {
+      "line_1": "mGAhLV",
+      "line_2": "4L_qCbBeeY",
+      "city": "Douala",
+      "state": "Bahrain",
+      "pincode": "4536"
+    },
+    "id": {
+      "type": "Aadhar",
+      "number": "02423879686290"
+    }
+  },
+  {
+    "user_id": 4,
+    "name": {
+      "first": "Reeba",
+      "middle": "John",
+      "last": "Allare"
+    },
+    "email_id": "reeba.allare@gmail.com",
+    "phone_number": "6685838827",
+    "gender": "male",
+    "age": "40",
+    "team": "UI",
+    "manager": "Ofilia Alva",
+    "address": {
+      "line_1": "QpBj4S",
+      "line_2": "N5SPbkjJiZ",
+      "city": "Brussels",
+      "state": "Pitcairn",
+      "pincode": "78877878"
+    },
+    "id": {
+      "type": "DL",
+      "number": "11368267026"
+    }
+  }
+]

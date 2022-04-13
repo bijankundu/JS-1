@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/screen1.css" />
+    <title>Screen 1</title>
+  </head>
+  <body>
+    <header>
+      <h1>Screen 1</h1>
+      <div class="header--btns">
+        <button class="btn--download" onclick="triggerDownload()">Export data</button>
+        <button class="btn--add" onclick="handleShowModal()">Add new employee</button>
+      </div>
+    </header>
+    <main id="container--screen1">
+      <div class="modal">
+        <div class="modal--content">
+          <div class="modal--header">Add new employee</div>
+          <div class="modal--body">
+            <form action="#" onsubmit="handleFormSubmit(event)">
+              <div class="form-element">
+                <label for="form--name">Name</label>
+                <div id="form--name" id="username">
+                  <input type="text" id="first" placeholder="first name" required />
+                  <input type="text" id="middle" placeholder="middle name" />
+                  <input type="text" id="last" placeholder="last name" required />
+                </div>
+              </div>
+              <div class="form-element">
+                <label for="form--name">Email ID</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-element">
+                <label for="form--name">Phone Number</label>
+                <input type="tel" id="phone" required />
+              </div>
+              <div class="form-element">
+                <label for="form--name">Gender</label>
+                <input type="text" id="gender" required />
+              </div>
+              <div class="form-element">
+                <label for="form--name">Age</label>
+                <input type="number" id="age" required />
+              </div>
+              <div class="form-element">
+                <label for="form--name">Team</label>
+                <input type="text" id="team" required />
+              </div>
+              <div class="form-element">
+                <label for="form--name">Manager</label>
+                <input type="text" id="manager" required />
+              </div>
+              <div class="form-element">
+                <label for="form--name">Address</label>
+                <div class="address">
+                  <input type="text" id="addr-line1" placeholder="address line 1" required />
+                  <input type="text" id="addr-line2" placeholder="address line 2" required />
+                  <input type="text" id="addr-city" placeholder="city" required />
+                  <input type="text" id="addr-state" placeholder="state" required />
+                  <input type="text" id="addr-pincode" placeholder="pincode" required />
+                </div>
+              </div>
+
+              <div class="form-element">
+                <label for="form--name">ID</label>
+                <div class="Id-proof">
+                  <select id="id-type">
+                    <option value="Aadhar">Aadhar</option>
+                    <option value="PAN">PAN</option>
+                    <option value="DL">PAN</option>
+                  </select>
+                  <input type="number" id="id-number" placeholder="id number" />
+                </div>
+              </div>
+              <div class="modal--footer">
+                <button class="btn--close" type="button" onclick="handleCloseModal()">Cancel</button>
+                <button class="btn--submit" type="submit">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
