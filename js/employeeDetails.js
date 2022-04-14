@@ -13,7 +13,7 @@ const generateUserDetailsElement = (key, value) => {
 };
 
 const renderDetails = () => {
-  const container = document.querySelector(".details-wrapper");
+  const container = document.querySelector(".inner-container");
   while (container.lastElementChild && container.lastElementChild.classList.contains("user-details-row")) {
     container.removeChild(container.lastElementChild);
   }
@@ -31,22 +31,25 @@ const renderDetails = () => {
   const currentEmployee = filteredEmp[0];
   const currentEmployeeAddress = currentEmployee.address;
 
-  container.prepend(
-    generateUserDetailsElement(
-      "Name",
-      `${currentEmployee.name.first} ${currentEmployee.name.middle} ${currentEmployee.name.last}`
-    ),
-    generateUserDetailsElement("Email", currentEmployee.email_id),
+  const innerContainer = document.querySelector(".details-wrapper");
+
+  innerContainer.append(generateUserDetailsElement("First Name", `${currentEmployee.name.first}`));
+  innerContainer.append(generateUserDetailsElement("Email", `${currentEmployee.email_id}`));
+  if (currentEmployee.name.middle !== "")
+    innerContainer.append(generateUserDetailsElement("Middle Name", `${currentEmployee.name.middle}`));
+
+  innerContainer.append(
     generateUserDetailsElement("Phone", currentEmployee.phone_number),
+    generateUserDetailsElement("Last Name", `${currentEmployee.name.last}`),
     generateUserDetailsElement("Gender", currentEmployee.gender),
     generateUserDetailsElement("Age", currentEmployee.age),
     generateUserDetailsElement("Team", currentEmployee.team),
     generateUserDetailsElement("Manager", currentEmployee.manager),
     generateUserDetailsElement("ID", `${currentEmployee.id.type} (${currentEmployee.id.number})`),
-    generateUserDetailsElement(
-      "Address",
-      `${currentEmployeeAddress.line_1}<br/>${currentEmployeeAddress.line_2}<br/>${currentEmployeeAddress.state}<br/>${currentEmployeeAddress.city} - ${currentEmployeeAddress.pincode}`
-    )
+    generateUserDetailsElement("Address", `${currentEmployeeAddress.line_1},<br/>${currentEmployeeAddress.line_2}`),
+    generateUserDetailsElement("State", `${currentEmployeeAddress.state}`),
+    generateUserDetailsElement("City", `${currentEmployeeAddress.city}`),
+    generateUserDetailsElement("Pincode", `${currentEmployeeAddress.pincode}`)
   );
 };
 

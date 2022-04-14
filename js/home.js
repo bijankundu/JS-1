@@ -152,21 +152,21 @@ const triggerDownload = () => {
 document.addEventListener("DOMContentLoaded", async () => {
   let userDetails = localStorage.getItem("userdetails");
 
-  userDetails = userDetails ? JSON.parse(userDetails) : [];
-
-  if (userDetails.length === 0) {
+  if (!userDetails) {
     const results = await fetch("sample.json");
     const users = await results.json();
-    localStorage.setItem("userdetails", JSON.stringify(users));
-    userDetails = users;
+    userDetails = JSON.stringify(users);
+    localStorage.setItem("userdetails", userDetails);
   }
+
+  userDetails = JSON.parse(userDetails);
   renderCards(userDetails);
 
   document.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn--delete")) {
       event.stopPropagation();
       deleteCard(event.target.dataset.user_id);
-    } else if (event.target.classList.contains("card") || event.target.closest(".card") !== null) {
+    } else if (event.target.closest(".card")) {
       const empId = event.target.closest(".card").classList[1].split("_")[1];
       window.location.href = `./pages/employeeDetails.html?empId=${empId}`;
     }

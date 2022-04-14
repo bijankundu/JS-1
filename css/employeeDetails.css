@@ -18,42 +18,48 @@ main#container--employeeDetails {
   min-height: 80vh;
 }
 
-.details-wrapper {
+.inner-container {
   background-color: white;
-  width: 40%;
-  border-radius: 5px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
   padding: 30px;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.details-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 20px;
 }
 
 .user-details-row {
   display: flex;
   align-items: center;
+  width: 50%;
 }
 
 .user-details-row h5,
 .user-details-row p {
   font-size: 1rem;
   font-weight: 500;
-  flex: 1 1 50%;
 }
 
 .user-details-row h5 {
+  flex: 1 1 10%;
   color: var(--gray-600);
 }
 
 .user-details-row p {
   color: var(--gray-900);
+  flex: 1 1 50%;
   line-height: 1.5;
 }
 
 .button-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 3rem;
+  width: 100%;
 }
 
 /* Modal styles */
