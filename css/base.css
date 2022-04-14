@@ -51,6 +51,12 @@ body {
 .btn:hover {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
 }
+
+.btn-outline {
+  background-color: white;
+  border: 1.5px solid var(--gray);
+}
+
 .btn-danger {
   background-color: var(--danger);
   color: white;

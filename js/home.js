@@ -48,14 +48,6 @@ const cardGenerator = (userDetails = {}) => {
   return card;
 };
 
-const renderCards = (userDetails) => {
-  const container = document.getElementById("container--screen1");
-  userDetails.forEach((user) => {
-    const card = cardGenerator(user);
-    container.append(card);
-  });
-};
-
 const deleteCard = (userId) => {
   const card = document.querySelector(`.emp_${userId}`);
   card.remove();
@@ -65,76 +57,21 @@ const deleteCard = (userId) => {
   localStorage.setItem("userdetails", JSON.stringify(existingEmployees.filter((user) => user.user_id != userId)));
 };
 
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-  // console.log(`trigger`);
-  const newEmployee = {};
-  newEmployee["name"] = {
-    first: document.getElementById("first").value,
-    middle: document.getElementById("middle").value ?? "",
-    last: document.getElementById("last").value,
-  };
-  newEmployee["email_id"] = document.getElementById("email").value;
-  newEmployee["phone_number"] = document.getElementById("phone").value;
-  newEmployee["gender"] = document.getElementById("gender").value;
-  newEmployee["age"] = document.getElementById("age").value;
-  newEmployee["team"] = document.getElementById("team").value;
-  newEmployee["manager"] = document.getElementById("manager").value;
-  newEmployee["address"] = {
-    line_1: document.getElementById("addr-line1").value,
-    line_2: document.getElementById("addr-line2").value,
-    city: document.getElementById("addr-city").value,
-    state: document.getElementById("addr-state").value,
-    pincode: document.getElementById("addr-pincode").value,
-  };
-  newEmployee["id"] = {
-    type: document.getElementById("id-type").value,
-    number: document.getElementById("id-number").value,
-  };
+const renderCards = (userDetails) => {
+  const container = document.getElementById("container--home");
+  userDetails.forEach((user) => {
+    const card = cardGenerator(user);
+    container.append(card);
+  });
+};
 
+const addNewEmployee = (employeeDetails) => {
   const existingEmployees = JSON.parse(localStorage.getItem("userdetails"));
-
-  newEmployee["user_id"] = existingEmployees.length;
-
-  const card = cardGenerator(newEmployee);
-
-  document.getElementById("container--screen1").append(card);
-
-  localStorage.setItem("userdetails", JSON.stringify([...existingEmployees, newEmployee]));
-
-  handleCloseModal();
-
-  return false;
-};
-
-const resetFormFields = () => {
-  document.getElementById("first").value = "";
-  document.getElementById("middle").value = "";
-  document.getElementById("last").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
-  document.getElementById("gender").value = "";
-  document.getElementById("age").value = "";
-  document.getElementById("team").value = "";
-  document.getElementById("manager").value = "";
-  document.getElementById("addr-line1").value = "";
-  document.getElementById("addr-line2").value = "";
-  document.getElementById("addr-city").value = "";
-  document.getElementById("addr-state").value = "";
-  document.getElementById("addr-pincode").value = "";
-  document.getElementById("id-type").value = "";
-  document.getElementById("id-number").value = "";
-};
-
-const handleShowModal = () => {
-  const modal = document.querySelector(".modal");
-  modal.style.display = "block";
-};
-
-const handleCloseModal = () => {
-  resetFormFields();
-  const modal = document.querySelector(".modal");
-  modal.style.display = "none";
+  employeeDetails["user_id"] = existingEmployees.length;
+  const card = cardGenerator(employeeDetails);
+  document.getElementById("container--home").append(card);
+  localStorage.setItem("userdetails", JSON.stringify([...existingEmployees, employeeDetails]));
+  closeModal();
 };
 
 const triggerDownload = () => {
@@ -171,4 +108,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = `./pages/employeeDetails.html?empId=${empId}`;
     }
   });
+
+  createModal("Add new employee", "Add");
 });

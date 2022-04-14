@@ -7,11 +7,11 @@
       "last": "Demitria"
     },
     "email_id": "gisela.demitria@gmail.com",
-    "phone_number": "9553465849",
-    "gender": "male",
+    "phone_number": "553465849",
+    "gender": "Male",
     "age": "40",
-    "team": "Platform",
-    "manager": "Emylee Lory",
+    "team": "Product",
+    "manager": "ProA",
     "address": {
       "line_1": "GPRb4_",
       "line_2": "xfTSM3agZi",
@@ -20,8 +20,8 @@
       "pincode": "123123"
     },
     "id": {
-      "type": "Aadhar",
-      "number": "5822421448"
+      "type": "Adhaar",
+      "number": "582242144812"
     }
   },
   {
@@ -33,10 +33,10 @@
     },
     "email_id": "phylis.isacco@gmail.com",
     "phone_number": "8307583132",
-    "gender": "female",
+    "gender": "Female",
     "age": "23",
-    "team": "Platform",
-    "manager": "Trudie Huggins",
+    "team": "Frontend",
+    "manager": "FrontA",
     "address": {
       "line_1": "qt2R_7",
       "line_2": "RiD4PohnOY",
@@ -45,7 +45,7 @@
       "pincode": "123123"
     },
     "id": {
-      "type": "Aadhar",
+      "type": "Adhaar",
       "number": "88482061105"
     }
   },
@@ -95,7 +95,7 @@
       "pincode": "4536"
     },
     "id": {
-      "type": "Aadhar",
+      "type": "Adhaar",
       "number": "02423879686290"
     }
   },

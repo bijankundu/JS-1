@@ -12,11 +12,9 @@ const generateUserDetailsElement = (key, value) => {
   return userDetailsContainer;
 };
 
-const renderDetails = () => {
+const renderEmployeeDetails = () => {
   const container = document.querySelector(".inner-container");
-  while (container.lastElementChild && container.lastElementChild.classList.contains("user-details-row")) {
-    container.removeChild(container.lastElementChild);
-  }
+  document.querySelector(".details-wrapper").innerHTML = "";
   let employees = localStorage.getItem("userdetails");
   if (!employees || empId == "") {
     container.innerText = "Employee not found";
@@ -30,6 +28,13 @@ const renderDetails = () => {
   }
   const currentEmployee = filteredEmp[0];
   const currentEmployeeAddress = currentEmployee.address;
+
+  if (!document.querySelector(".modal"))
+    createModal("Add new employee", "Edit", {
+      team: currentEmployee.team,
+      state: currentEmployeeAddress.state,
+      idType: currentEmployee.id.type,
+    });
 
   const innerContainer = document.querySelector(".details-wrapper");
 
@@ -53,66 +58,17 @@ const renderDetails = () => {
   );
 };
 
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-  console.log(`trigger`);
-  const updatedEmployee = {};
-  updatedEmployee["name"] = {
-    first: document.getElementById("first").value,
-    middle: document.getElementById("middle").value ?? "",
-    last: document.getElementById("last").value,
-  };
-  updatedEmployee["email_id"] = document.getElementById("email").value;
-  updatedEmployee["phone_number"] = document.getElementById("phone").value;
-  updatedEmployee["gender"] = document.getElementById("gender").value;
-  updatedEmployee["age"] = document.getElementById("age").value;
-  updatedEmployee["team"] = document.getElementById("team").value;
-  updatedEmployee["manager"] = document.getElementById("manager").value;
-  updatedEmployee["address"] = {
-    line_1: document.getElementById("addr-line1").value,
-    line_2: document.getElementById("addr-line2").value,
-    city: document.getElementById("addr-city").value,
-    state: document.getElementById("addr-state").value,
-    pincode: document.getElementById("addr-pincode").value,
-  };
-  updatedEmployee["id"] = {
-    type: document.getElementById("id-type").value,
-    number: document.getElementById("id-number").value,
-  };
-
+const updateEmployeeDetails = (employeeDetails) => {
   const existingEmployees = JSON.parse(localStorage.getItem("userdetails"));
 
-  updatedEmployee["user_id"] = empId;
+  employeeDetails["user_id"] = empId;
 
   const filteredEmpoyees = existingEmployees.filter((emp) => emp.user_id != empId);
-  console.log([...filteredEmpoyees, updatedEmployee]);
 
-  localStorage.setItem("userdetails", JSON.stringify([...filteredEmpoyees, updatedEmployee]));
+  localStorage.setItem("userdetails", JSON.stringify([...filteredEmpoyees, employeeDetails]));
 
-  renderDetails();
-
-  handleCloseModal();
-
-  return false;
-};
-
-const resetFormFields = () => {
-  document.getElementById("first").value = "";
-  document.getElementById("middle").value = "";
-  document.getElementById("last").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
-  document.getElementById("gender").value = "";
-  document.getElementById("age").value = "";
-  document.getElementById("team").value = "";
-  document.getElementById("manager").value = "";
-  document.getElementById("addr-line1").value = "";
-  document.getElementById("addr-line2").value = "";
-  document.getElementById("addr-city").value = "";
-  document.getElementById("addr-state").value = "";
-  document.getElementById("addr-pincode").value = "";
-  document.getElementById("id-type").value = "";
-  document.getElementById("id-number").value = "";
+  renderEmployeeDetails();
+  closeModal();
 };
 
 const setFormFields = () => {
@@ -121,38 +77,26 @@ const setFormFields = () => {
   const filteredEmp = employees.filter((emp) => emp.user_id == empId);
   const currentEmployee = filteredEmp[0];
 
-  document.getElementById("first").value = currentEmployee.name.first;
-  document.getElementById("middle").value = currentEmployee.name.middle;
-  document.getElementById("last").value = currentEmployee.name.last;
-  document.getElementById("email").value = currentEmployee.email_id;
-  document.getElementById("phone").value = currentEmployee.phone_number;
-  document.getElementById("gender").value = currentEmployee.gender;
-  document.getElementById("age").value = currentEmployee.age;
-  document.getElementById("team").value = currentEmployee.team;
-  document.getElementById("manager").value = currentEmployee.manager;
-  document.getElementById("addr-line1").value = currentEmployee.address.line_1;
-  document.getElementById("addr-line2").value = currentEmployee.address.line_2;
-  document.getElementById("addr-city").value = currentEmployee.address.city;
-  document.getElementById("addr-state").value = currentEmployee.address.state;
-  document.getElementById("addr-pincode").value = currentEmployee.address.pincode;
-  document.getElementById("id-type").value = currentEmployee.id.type;
-  document.getElementById("id-number").value = currentEmployee.id.number;
-};
-
-const handleShowModal = () => {
-  setFormFields();
-  const modal = document.querySelector(".modal");
-  modal.style.display = "block";
-};
-
-const handleCloseModal = () => {
-  resetFormFields();
-  const modal = document.querySelector(".modal");
-  modal.style.display = "none";
+  document.getElementById("form--first-name").value = currentEmployee.name.first;
+  document.getElementById("form--middle-name").value = currentEmployee.name.middle;
+  document.getElementById("form--last-name").value = currentEmployee.name.last;
+  document.getElementById("form--email").value = currentEmployee.email_id;
+  document.getElementById("form--phone").value = currentEmployee.phone_number;
+  document.getElementById("form--gender").value = currentEmployee.gender;
+  document.getElementById("form--age").value = currentEmployee.age;
+  document.getElementById("form--team").value = currentEmployee.team;
+  document.getElementById("form--manager").value = currentEmployee.manager;
+  document.getElementById("form--addr_line_1").value = currentEmployee.address.line_1;
+  document.getElementById("form-addr_line_2").value = currentEmployee.address.line_2;
+  document.getElementById("form--city").value = currentEmployee.address.city;
+  document.getElementById("form--state").value = currentEmployee.address.state;
+  document.getElementById("form--pincode").value = currentEmployee.address.pincode;
+  document.getElementById("form--id-type").value = currentEmployee.id.type;
+  document.getElementById("form--id_number").value = currentEmployee.id.number;
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchParams = window.location.search.replace("?", "");
   empId = searchParams.split("=")[1] ?? "";
-  renderDetails(empId);
+  renderEmployeeDetails();
 });

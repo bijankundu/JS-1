@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./../css/base.css" />
+    <link rel="stylesheet" href="./../css/modal.css" />
     <link rel="stylesheet" href="./../css/employeeDetails.css" />
-    <title>Screen 2</title>
+    <title>Employee Details</title>
   </head>
   <body>
     <header>
@@ -18,80 +19,14 @@
       <div class="inner-container">
         <div class="details-wrapper"></div>
         <div class="button-wrapper">
-          <button class="btn--edit btn btn-primary" onclick="handleShowModal()">
+          <button class="btn--edit btn btn-primary modal-trigger" onclick="openModal()">
             <i class="fa-regular fa-pen-to-square"></i> EDIT DETAILS
           </button>
         </div>
       </div>
     </main>
-    <div class="modal">
-      <div class="modal--content">
-        <div class="modal--header">Add new employee</div>
-        <div class="modal--body">
-          <form action="#" onsubmit="handleFormSubmit(event)">
-            <div class="form-element">
-              <label for="form--name">Name</label>
-              <div id="form--name" id="username">
-                <input type="text" id="first" placeholder="first name" required />
-                <input type="text" id="middle" placeholder="middle name" />
-                <input type="text" id="last" placeholder="last name" required />
-              </div>
-            </div>
-            <div class="form-element">
-              <label for="form--name">Email ID</label>
-              <input type="email" id="email" required />
-            </div>
-            <div class="form-element">
-              <label for="form--name">Phone Number</label>
-              <input type="tel" id="phone" required />
-            </div>
-            <div class="form-element">
-              <label for="form--name">Gender</label>
-              <input type="text" id="gender" required />
-            </div>
-            <div class="form-element">
-              <label for="form--name">Age</label>
-              <input type="number" id="age" required />
-            </div>
-            <div class="form-element">
-              <label for="form--name">Team</label>
-              <input type="text" id="team" required />
-            </div>
-            <div class="form-element">
-              <label for="form--name">Manager</label>
-              <input type="text" id="manager" required />
-            </div>
-            <div class="form-element">
-              <label for="form--name">Address</label>
-              <div class="address">
-                <input type="text" id="addr-line1" placeholder="address line 1" required />
-                <input type="text" id="addr-line2" placeholder="address line 2" required />
-                <input type="text" id="addr-city" placeholder="city" required />
-                <input type="text" id="addr-state" placeholder="state" required />
-                <input type="text" id="addr-pincode" placeholder="pincode" required />
-              </div>
-            </div>
 
-            <div class="form-element">
-              <label for="form--name">ID</label>
-              <div class="Id-proof">
-                <select id="id-type">
-                  <option value="Aadhar">Aadhar</option>
-                  <option value="PAN">PAN</option>
-                  <option value="DL">PAN</option>
-                </select>
-                <input type="number" id="id-number" placeholder="id number" />
-              </div>
-            </div>
-            <div class="modal--footer">
-              <button class="btn--close" type="button" onclick="handleCloseModal()">Cancel</button>
-              <button class="btn--submit" type="submit">Update</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
+    <script src="./../js/modal.js"></script>
     <script src="./../js/employeeDetails.js"></script>
   </body>
 </html>
