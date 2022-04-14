@@ -52,9 +52,11 @@ const deleteCard = (userId) => {
   const card = document.querySelector(`.emp_${userId}`);
   card.remove();
 
-  const existingEmployees = JSON.parse(localStorage.getItem("userdetails"));
+  const { employees: existingEmployees } = JSON.parse(localStorage.getItem("userdetails"));
 
-  localStorage.setItem("userdetails", JSON.stringify(existingEmployees.filter((user) => user.user_id != userId)));
+  const updatedEmployeeList = { employees: existingEmployees.filter((user) => user.user_id != userId) };
+
+  localStorage.setItem("userdetails", JSON.stringify(updatedEmployeeList));
 };
 
 const renderCards = (userDetails) => {
@@ -66,11 +68,11 @@ const renderCards = (userDetails) => {
 };
 
 const addNewEmployee = (employeeDetails) => {
-  const existingEmployees = JSON.parse(localStorage.getItem("userdetails"));
+  const { employees: existingEmployees } = JSON.parse(localStorage.getItem("userdetails"));
   employeeDetails["user_id"] = existingEmployees.length;
   const card = cardGenerator(employeeDetails);
   document.getElementById("container--home").append(card);
-  localStorage.setItem("userdetails", JSON.stringify([...existingEmployees, employeeDetails]));
+  localStorage.setItem("userdetails", JSON.stringify({ employees: [...existingEmployees, employeeDetails] }));
   closeModal();
 };
 
@@ -91,13 +93,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (!userDetails) {
     const results = await fetch("sample.json");
-    const users = await results.json();
-    userDetails = JSON.stringify(users);
+    const data = await results.json();
+    userDetails = JSON.stringify(data);
     localStorage.setItem("userdetails", userDetails);
   }
 
-  userDetails = JSON.parse(userDetails);
-  renderCards(userDetails);
+  const { employees } = JSON.parse(userDetails);
+  renderCards(employees);
 
   document.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn--delete")) {

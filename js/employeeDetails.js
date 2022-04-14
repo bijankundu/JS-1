@@ -20,7 +20,9 @@ const renderEmployeeDetails = () => {
     container.innerText = "Employee not found";
     return;
   }
-  employees = JSON.parse(employees);
+
+  const parsedJson = JSON.parse(employees);
+  employees = parsedJson.employees;
   const filteredEmp = employees.filter((emp) => emp.user_id == empId);
   if (filteredEmp.length === 0) {
     container.innerText = "Employee not found";
@@ -59,13 +61,13 @@ const renderEmployeeDetails = () => {
 };
 
 const updateEmployeeDetails = (employeeDetails) => {
-  const existingEmployees = JSON.parse(localStorage.getItem("userdetails"));
+  const { employees: existingEmployees } = JSON.parse(localStorage.getItem("userdetails"));
 
   employeeDetails["user_id"] = empId;
 
   const filteredEmpoyees = existingEmployees.filter((emp) => emp.user_id != empId);
 
-  localStorage.setItem("userdetails", JSON.stringify([...filteredEmpoyees, employeeDetails]));
+  localStorage.setItem("userdetails", JSON.stringify({ employees: [...filteredEmpoyees, employeeDetails] }));
 
   renderEmployeeDetails();
   closeModal();
@@ -73,7 +75,8 @@ const updateEmployeeDetails = (employeeDetails) => {
 
 const setFormFields = () => {
   let employees = localStorage.getItem("userdetails");
-  employees = JSON.parse(employees);
+  const parsedJson = JSON.parse(employees);
+  employees = parsedJson.employees;
   const filteredEmp = employees.filter((emp) => emp.user_id == empId);
   const currentEmployee = filteredEmp[0];
 
