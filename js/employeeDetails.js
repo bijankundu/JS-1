@@ -2,33 +2,21 @@ let empId = "";
 
 const generateUserDetailsElement = (key, value) => {
   const userDetailsContainer = document.createElement("div");
-  userDetailsContainer.classList.add("user-details");
-  const h3 = document.createElement("h3");
+  userDetailsContainer.classList.add("user-details-row");
+  const h5 = document.createElement("h5");
   const p = document.createElement("p");
-  h3.innerText = key;
+  h5.innerText = key;
+  p.innerHTML = value;
+  userDetailsContainer.append(h5, p);
 
-  if (key !== "Address") {
-    p.innerText = value;
-    userDetailsContainer.append(h3, p);
-  } else {
-    const addLine1 = document.createElement("div");
-    const addLine2 = document.createElement("div");
-    const city = document.createElement("div");
-    const state = document.createElement("div");
-    const pincode = document.createElement("div");
-    addLine1.innerText = value.line_1;
-    addLine2.innerText = value.line_1;
-    city.innerText = value.city;
-    state.innerText = value.state;
-    pincode.innerText = value.pincode;
-    userDetailsContainer.append(h3, addLine1, addLine2, city, state, pincode);
-  }
   return userDetailsContainer;
 };
 
 const renderDetails = () => {
-  const container = document.getElementById("container--screen2");
-  container.innerHTML = "";
+  const container = document.querySelector(".details-wrapper");
+  while (container.lastElementChild && container.lastElementChild.classList.contains("user-details-row")) {
+    container.removeChild(container.lastElementChild);
+  }
   let employees = localStorage.getItem("userdetails");
   if (!employees || empId == "") {
     container.innerText = "Employee not found";
@@ -41,8 +29,9 @@ const renderDetails = () => {
     return;
   }
   const currentEmployee = filteredEmp[0];
+  const currentEmployeeAddress = currentEmployee.address;
 
-  container.append(
+  container.prepend(
     generateUserDetailsElement(
       "Name",
       `${currentEmployee.name.first} ${currentEmployee.name.middle} ${currentEmployee.name.last}`
@@ -54,7 +43,10 @@ const renderDetails = () => {
     generateUserDetailsElement("Team", currentEmployee.team),
     generateUserDetailsElement("Manager", currentEmployee.manager),
     generateUserDetailsElement("ID", `${currentEmployee.id.type} (${currentEmployee.id.number})`),
-    generateUserDetailsElement("Address", currentEmployee.address)
+    generateUserDetailsElement(
+      "Address",
+      `${currentEmployeeAddress.line_1}<br/>${currentEmployeeAddress.line_2}<br/>${currentEmployeeAddress.state}<br/>${currentEmployeeAddress.city} - ${currentEmployeeAddress.pincode}`
+    )
   );
 };
 

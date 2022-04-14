@@ -68,12 +68,13 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  font-weight: 500;
 }
 
 .card--body .user-details h5 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: var(--gray-800);
+  color: var(--gray-600);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,8 +83,7 @@ a {
 
 .card--body .user-details p {
   font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--gray-700);
+  color: var(--gray-900);
 }
 
 .btn--delete {

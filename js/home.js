@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       deleteCard(event.target.dataset.user_id);
     } else if (event.target.classList.contains("card") || event.target.closest(".card") !== null) {
       const empId = event.target.closest(".card").classList[1].split("_")[1];
-      window.location.href = `${window.location.origin}/screen2.html?empId=${empId}`;
+      window.location.href = `./pages/employeeDetails.html?empId=${empId}`;
     }
   });
 });

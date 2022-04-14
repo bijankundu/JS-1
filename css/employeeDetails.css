@@ -3,42 +3,57 @@ header {
   padding: 16px;
 }
 
+header {
+  max-height: 20vh;
+}
+
 header h1 {
   text-align: center;
 }
 
-main {
+main#container--employeeDetails {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
 }
 
-.header--btns {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.header--btns .btn--edit {
-  padding: 8px;
-  border: none;
+.details-wrapper {
+  background-color: white;
+  width: 40%;
   border-radius: 5px;
-  color: white;
-  background-color: #28328c;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.header--btns .btn--edit:hover {
-  cursor: pointer;
-  background-color: #3542b8;
+.user-details-row {
+  display: flex;
+  align-items: center;
 }
 
-.header--btns .btn--edit:active {
-  cursor: pointer;
-  background-color: #1f2985;
+.user-details-row h5,
+.user-details-row p {
+  font-size: 1rem;
+  font-weight: 500;
+  flex: 1 1 50%;
 }
 
-.user-details {
-  flex: 1 1 40%;
+.user-details-row h5 {
+  color: var(--gray-600);
+}
+
+.user-details-row p {
+  color: var(--gray-900);
+  line-height: 1.5;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 /* Modal styles */
