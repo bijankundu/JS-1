@@ -101,7 +101,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { employees } = JSON.parse(userDetails);
   renderCards(employees);
 
-  document.addEventListener("click", (event) => {
+  const mainContainer = document.getElementById("container--home");
+
+  mainContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn--delete")) {
       event.stopPropagation();
       deleteCard(event.target.dataset.user_id);
