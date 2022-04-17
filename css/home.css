@@ -1,6 +1,6 @@
 main,
 header {
-  padding: 16px;
+  padding: 1rem;
 }
 
 header h1 {
@@ -11,7 +11,7 @@ header h1 {
 main {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
   justify-content: space-around;
 }
 
@@ -22,8 +22,8 @@ main {
 
 .btn--download {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 3.125rem;
+  width: 3.125rem;
   position: fixed;
   bottom: 2%;
   right: 2%;
@@ -34,10 +34,10 @@ a {
 }
 
 .card {
-  border: 1px solid #c7c7c7;
-  padding: 20px;
-  border-radius: 5px;
-  width: 300px;
+  border: 0.0625rem solid #c7c7c7;
+  padding: 1.25rem;
+  border-radius: 0.3125rem;
+  width: 18.75rem;
   display: flex;
   flex-direction: column;
   color: black;
@@ -46,20 +46,20 @@ a {
 }
 
 .card:hover {
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.625rem 0 rgba(0, 0, 0, 0.2), 0 0.25rem 1.25rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .card--title h3 {
   text-align: center;
   font-size: 1.2rem;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   color: var(--gray-900);
 }
 
 .card--body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   flex: 1;
 }
 
@@ -67,7 +67,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.625rem;
   font-weight: 500;
 }
 
@@ -78,7 +78,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .card--body .user-details p {
